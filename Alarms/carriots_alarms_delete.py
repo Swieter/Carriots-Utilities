@@ -5,7 +5,7 @@
 # Access Carriots and pull down a list of all alarms based on any parameters specified.
 # Then attempt to delete each alarm.  Display the interaction on the terminal.
 
-# NOTE:  You must add your API Key below
+# NOTE:  You must add your API Key below.
 
 import requests, json
 

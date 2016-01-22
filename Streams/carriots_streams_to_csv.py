@@ -6,7 +6,7 @@
 # Process those streams into a CSV file and save locally.
 # Feel free to tinker with the code to get the JSON to CSV translation you would like.
 #
-# NOTE:  You must add your API Key below and update the CSV Header row and CSV building routine to match your desired output
+# NOTE:  You must add your API Key below and update the CSV Header row and CSV building routine to match your desired output.
 
 
 import requests, json, csv
