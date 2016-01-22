@@ -4,6 +4,7 @@
 
 # Access Carriots and pull down a list of all alarms based on any parameters specified.
 # Then attempt to delete each alarm.  Display the interaction on the terminal.
+# See the following link for the API information:  https://www.carriots.com/documentation/api/alarms
 
 # NOTE:  You must add your API Key below.
 
@@ -17,7 +18,7 @@ app_key = "ENTER_YOUR_API_KEY_HERE"
 headers = {"carriots.apikey":app_key}
 
 # Enter any filter parameters in the params section below to limit which alarms are retreived
-# Example:  {'device':}
+# Example:  {'device': 'example@carriots'}
 params = {}
 
 
@@ -30,11 +31,9 @@ binary = carriotsResponse.content
 output = json.loads(binary)
 
 
-
 # Uncomment the following if you wish to see the specific alarms retreived
 #Print "The following are the alarms retreived"
 #print output
-
 
 
 print "There are " + str(len(output['result'])) + " alarms retrieved from Carriots."

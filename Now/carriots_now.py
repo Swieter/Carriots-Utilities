@@ -3,7 +3,7 @@
 # MIT License
 
 # Access Carriots and pull down the latest time in various formats.
-# See here for the API information:  https://www.carriots.com/documentation/api/dates
+# See the following link for the API information:  https://www.carriots.com/documentation/api/dates
 #
 # NOTE:  You must add your API Key below.
 
