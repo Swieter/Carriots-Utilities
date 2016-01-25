@@ -44,10 +44,10 @@ print "Updating each device..."
 success = 0
 fail = 0
 
-
+# Loop throught each device
 for device in range(len(output['result'])):
 
-	print output['result'][device]
+	#print output['result'][device]
 
 	# Place here the aspects of device you would like to update, there are some core required elemnets in each put, those are included below.
 	updateValues = {'type': output['result'][device]['type'],
@@ -56,7 +56,9 @@ for device in range(len(output['result'])):
 				   'id_group': output['result'][device]['id_group'],
 				   'enabled': output['result'][device]['enabled'],
 				   'id_developer': output['result'][device]['id_developer'],
-				   'id_model': output['result'][device]['id_model'],
+				   'id_model': output['result'][device]['id_model']
+   				   #'frequency_stream': 7,
+   				   #'frequency_status': 1
 				   }
 
 	carriotsResponse = requests.put(app_url + app_element + output['result'][device]['id_developer'] + "/", headers=headers, data=json.dumps(updateValues))
