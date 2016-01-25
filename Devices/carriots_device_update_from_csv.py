@@ -11,7 +11,7 @@
 
 import requests, json, csv
 
-# Kick off the program by getting the user input 
+# Kick off the program by getting the user input
 print ""
 print "This program will take a CSVs of device details and update Carriots."
 print ""
@@ -100,10 +100,37 @@ for row in myCSVdataFiltered:
 		else:
 			failCarriots += 1
 
-	else if output['total_documents'] == 0:
-		# TODO
-		print "create new device"
+	elif output['total_documents'] == 0:
+		createValues = {}
 
+		# It is assumed the CSV is set up in this order, you can add or change columns as you wish
+		createValues['id_developer'] = row[0]
+		createValues['id_group'] = row[1]
+		createValues['id_assets'] = row[2]
+		createValues['id_model'] = row[3]
+		createValues['name'] = row[4]
+		createValues['description'] = row[5]
+		createValues['time_zone'] = row[6]
+		createValues['frequency_stream'] = int(row[7])
+		createValues['frequency_status'] = int(row[8])
+		createValues['type'] = row[9]
+		createValues['enabled'] = bool(row[10])
+
+		# Example if using the user specified device properties, likely need to add key
+		#updateValues['properties'] = {}
+		#updateValues['properties']['SerialNumber'] = row[7]
+
+
+		# Send updated values to Carriots
+		carriotsResponse = requests.post(app_url + app_element, headers=headers, data=json.dumps(createValues))
+
+		print carriotsResponse.status_code
+		print carriotsResponse.text
+
+		if carriotsResponse.status_code == requests.codes.ok:
+			successCarriots += 1
+		else:
+			failCarriots += 1
 
 print ""
 print "Total devices updated: " + str(successCarriots)
